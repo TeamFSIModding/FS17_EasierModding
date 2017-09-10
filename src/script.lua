@@ -5,7 +5,7 @@
 -- @date 06/09/2017
 EasierModding = {};
 EasierModding.name = "EasierModding";
-EasierModding.debug = true;
+EasierModding.debug = false;
 
 function EasierModding:pinfo(text, ...)
     local start = string.format("[INFO(%s)] -> ", getDate("%H:%M:%S"));
@@ -39,39 +39,29 @@ function EasierModding:loadMap(name)
         g_currentMission:pinfo("Test print with %s", "g_currentMission:pinfo");
         g_currentMission:perror("Test print with %s", "g_currentMission:perror");
     end
-    if not g_addCheatCommands then
-        addConsoleCommand("emShowVehicleDistance", "Shows the distance between vehicle and cam", "consoleCommandShowVehicleDistance", g_currentMission);
-    end
+    addConsoleCommand("emShowVehicleDistance", "Shows the distance between vehicle and cam", "consoleCommandShowVehicleDistance", g_currentMission);
     if g_currentMission:getIsServer() then
-        if not g_addCheatCommands then
-            addConsoleCommand("emCheatMoney", "Add a lot of money", "consoleCommandCheatMoney", g_currentMission);
-            addConsoleCommand("emBuyField", "Buys a field", "consoleCommandBuyField", g_currentMission);
-            addConsoleCommand("emBuyAllFields", "Buys all fields", "consoleCommandBuyAllFields", g_currentMission);
-            addConsoleCommand("emSetFieldFruit", "Sets a given fruit to field", "consoleCommandSetFieldFruit", g_currentMission);
-            addConsoleCommand("emSetFieldGround", "Sets a given fruit to field", "consoleCommandSetFieldGround", g_currentMission);
-            if not g_currentMission.missionDynamicInfo.isMultiplayer then
-                addConsoleCommand("emReloadVehicle", "Reloads a whole vehicle", "consoleCommandReloadVehicle", g_currentMission);
-            end
-            addConsoleCommand("emShowTipCollisions", "Shows the collisions for tipping on the ground", "consoleCommandShowTipCollisions", g_currentMission);
-            addConsoleCommand("emAddBale", "Adds a bale", "consoleCommandAddBale", g_currentMission);
-            addConsoleCommand("emSetFuel", "Sets the vehicle fuel level", "consoleCommandSetFuel", g_currentMission);
-            addConsoleCommand("emFillVehicle", "Fills the vehicle with given filltype", "consoleCommandFillVehicle", g_currentMission);
-            addConsoleCommand("emSetOperatingTime", "Sets the vehicle operating time", "consoleCommandSetOperatingTime", g_currentMission);
-            addConsoleCommand("emSetDirtScale", "Sets a given dirt scale", "consoleCommandSetDirtScale", g_currentMission);
-            addConsoleCommand("emCheatSilo", "Add silo amount", "consoleCommandCheatSilo", g_currentMission);
+        addConsoleCommand("emCheatMoney", "Add a lot of money", "consoleCommandCheatMoney", g_currentMission);
+        addConsoleCommand("emBuyField", "Buys a field", "consoleCommandBuyField", g_currentMission);
+        addConsoleCommand("emBuyAllFields", "Buys all fields", "consoleCommandBuyAllFields", g_currentMission);
+        addConsoleCommand("emSetFieldFruit", "Sets a given fruit to field", "consoleCommandSetFieldFruit", g_currentMission);
+        addConsoleCommand("emSetFieldGround", "Sets a given fruit to field", "consoleCommandSetFieldGround", g_currentMission);
+        if not g_currentMission.missionDynamicInfo.isMultiplayer then
+            addConsoleCommand("emReloadVehicle", "Reloads a whole vehicle", "consoleCommandReloadVehicle", g_currentMission);
         end
-        if not g_addTestCommands then
-            addConsoleCommand("emExportStoreItems", "Exports storeItem data", "consoleCommandExportStoreItems", g_currentMission);
-            addConsoleCommand("emStartBrandSale", "Starts a brand sale", "consoleStartBrandSale", g_currentMission);
-            addConsoleCommand("emStartVehicleSale", "Starts a vehicle sale", "consoleStartVehicleSale", g_currentMission);
-            addConsoleCommand("emStartGreatDemand", "Starts a great demand", "consoleStartGreatDemand", g_currentMission);
-            addConsoleCommand("emCheatFeedingTrough", "Add grass to feeding through", "consoleCommandCheatFeedingTrough", g_currentMission);
-            addConsoleCommand("emUpdateTipCollisions", "Updates the collisions for tipping on the ground around the current camera", "consoleCommandUpdateTipCollisions", g_currentMission);
-            addConsoleCommand("emTeleport", "Teleports to given field or x/z-position", "consoleCommandTeleport", g_currentMission);
-        end
-    end
-    if not g_isDevelopmentVersion then
-        addConsoleCommand("emActivateCameraPath", "Activate camera path", "consoleActivateCameraPath", g_currentMission);
+        addConsoleCommand("emShowTipCollisions", "Shows the collisions for tipping on the ground", "consoleCommandShowTipCollisions", g_currentMission);
+        addConsoleCommand("emAddBale", "Adds a bale", "consoleCommandAddBale", g_currentMission);
+        addConsoleCommand("emSetFuel", "Sets the vehicle fuel level", "consoleCommandSetFuel", g_currentMission);
+        addConsoleCommand("emFillVehicle", "Fills the vehicle with given filltype", "consoleCommandFillVehicle", g_currentMission);
+        addConsoleCommand("emSetOperatingTime", "Sets the vehicle operating time", "consoleCommandSetOperatingTime", g_currentMission);
+        addConsoleCommand("emSetDirtScale", "Sets a given dirt scale", "consoleCommandSetDirtScale", g_currentMission);
+        addConsoleCommand("emCheatSilo", "Add silo amount", "consoleCommandCheatSilo", g_currentMission);
+        addConsoleCommand("emExportStoreItems", "Exports storeItem data", "consoleCommandExportStoreItems", g_currentMission);
+        addConsoleCommand("emStartBrandSale", "Starts a brand sale", "consoleStartBrandSale", g_currentMission);
+        addConsoleCommand("emStartVehicleSale", "Starts a vehicle sale", "consoleStartVehicleSale", g_currentMission);
+        addConsoleCommand("emStartGreatDemand", "Starts a great demand", "consoleStartGreatDemand", g_currentMission);
+        addConsoleCommand("emUpdateTipCollisions", "Updates the collisions for tipping on the ground around the current camera", "consoleCommandUpdateTipCollisions", g_currentMission);
+        addConsoleCommand("emTeleport", "Teleports to given field or x/z-position", "consoleCommandTeleport", g_currentMission);
     end
     self:loadSavegame();
 end
