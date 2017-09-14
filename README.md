@@ -1,90 +1,120 @@
 # FS17_EasierModding
 Adds new useful commands to developer console.  
+  
 # Commands list
-**emAddBale** *(Adds a bale)*  
-Usage: emAddBale **fillType isRoundBale** *[width height / diameter length]*  
+## emAddBale
+> __*Adds a bale*__  
+> Usage: emAddBale **fillType isRoundBale** *[width height / diameter length]*  
     
-**emBuyAllFields** *(Buys all fields)*  
-Usage: emBuyAllFields  
+## emBuyAllFields
+> __*Buys all fields*__  
+> Usage: emBuyAllFields  
     
-**emBuyField** *(Buys a field)*  
-Usage: emBuyField **fieldNumber**  
+## emBuyField
+> __*Buys a field*__  
+> Usage: emBuyField **fieldNumber**  
     
-**emChangeLanguage** *(Changes the game language)*  
-Usage: emChangeLanguage *[code]*  
+## emChangeLanguage
+> __*Changes the game language*__  
+> Usage: emChangeLanguage *[code]*  
     
-**emCheatMoney** *(Add a lot of money)*  
-Usage: emCheatMoney **amount**  
+## emCheatMoney
+> __*Add a lot of money*__  
+> Usage: emCheatMoney **amount**  
     
-**emCheatSilo** *(Add silo amount)*  
-Usage: emCheatSilo **fillType amount**  
+## emCheatSilo
+> __*Add silo amount*__  
+> Usage: emCheatSilo **fillType amount**  
     
-**emDeleteAllVehicles** *(Deletes all vehicles)*  
-Usage: emDeleteAllVehicles  
+## emDeleteAllVehicles
+> __*Deletes all vehicles*__  
+> Usage: emDeleteAllVehicles  
     
-**emExportStoreItems** *(Exports storeItem data)*  
-Usage: emExportStoreItems  
+## emExportStoreItems
+> __*Exports storeItem data*__  
+> Usage: emExportStoreItems  
     
-**emFillVehicle** *(Fills the vehicle with given filltype)*  
-Usage: emFillVehicle *\[fillType] [amount]*  
+## emFillVehicle
+> __*Fills the vehicle with given filltype*__  
+> Usage: emFillVehicle *\[fillType] [amount]*  
     
-**emReloadCurrentGui** *(Reloads the gui)*  
-Usage: emReloadCurrentGui  
+## emReloadCurrentGui
+> __*Reloads the gui  
+> Usage: emReloadCurrentGui*__  
     
-**emReloadVehicle** *(Reloads a whole vehicle)*  
-Usage: emReloadVehicle  
+## emReloadVehicle
+> __*Reloads a whole vehicle*__  
+> Usage: emReloadVehicle  
     
-**emSetAnimals** *(Sets the amount of given animals)*  
-Usage: emSetAnimals **type[cow | pig | sheep] amount**  
+## emSetAnimals
+> __*Sets the amount of given animals*__  
+> Usage: emSetAnimals **type[cow | pig | sheep] amount**  
     
-**emSetDebugRenderingMode** *(Changes the rendering mode)*  
-Usage: emSetDebugRenderingMode *\[mode](alpha | parallax | albedo | normals | lightGrid | shadowSplits)*  
+## emSetDebugRenderingMode
+> __*Changes the rendering mode*__  
+> Usage: emSetDebugRenderingMode *\[mode](alpha | parallax | albedo | normals | lightGrid | shadowSplits)*  
     
-**emSetDirtScale** *(Sets a given dirt scale)*  
-Usage: emSetDirtScale **amount**  
+## emSetDirtScale
+> __*Sets a given dirt scale*__  
+> Usage: emSetDirtScale **amount**  
     
-**emSetFieldFruit** *(Sets a given fruit to field)*  
-Usage: emSetFieldFruit **fieldNumber fruitName** *\[growthState] \[fertilizerState] \[ploughingState] [buyField]*  
+## emSetFieldFruit
+> __*Sets a given fruit to field*__  
+> Usage: emSetFieldFruit **fieldNumber fruitName** *\[growthState] \[fertilizerState] \[ploughingState] [buyField]*  
     
-**emSetFieldGround** *(Sets a given fruit to field)*  
-Usage: emSetFieldGround **fieldNumber groundName(cultivator | plough | sowing | sowing_width)** *\[angle] \[fertilizerState] \[ploughingState] [buyField]*  
+## emSetFieldGround
+> __*Sets a given fruit to field*__  
+> Usage: emSetFieldGround **fieldNumber groundName(cultivator | plough | sowing | sowing_width)** *\[angle] \[fertilizerState] \[ploughingState] [buyField]*  
     
-**emSetFuel** *(Sets the vehicle fuel level)*  
-Usage: emSetFuel **fuelLevel**  
+## emSetFuel
+> __*Sets the vehicle fuel level*__  
+> Usage: emSetFuel **fuelLevel**  
     
-**emSetOperatingTime** *(Sets the vehicle operating time)*  
-Usage: emSetOperatingTime **operatingTime**  
+## emSetOperatingTime
+> __*Sets the vehicle operating time*__  
+> Usage: emSetOperatingTime **operatingTime**  
     
-**emShowTipCollisions** *(Shows the collisions for tipping on the ground)*  
-Usage: emShowTipCollisions  
+## emShowTipCollisions
+> __*Shows the collisions for tipping on the ground*__  
+> Usage: emShowTipCollisions  
     
-**emShowVehicleDistance** *(Shows the distance between vehicle and cam)*  
-Usage: emShowVehicleDistance  
+## emShowVehicleDistance
+> __*Shows the distance between vehicle and cam*__  
+> Usage: emShowVehicleDistance  
     
-**emStartBrandSale** *(Starts a brand sale)*  
-Usage: emStartBrandSale  
+## emStartBrandSale
+> __*Starts a brand sale*__  
+> Usage: emStartBrandSale  
     
-**emStartGreatDemand** *(Starts a great demand)*  
-Usage: emStartGreatDemand  
+## emStartGreatDemand
+> __*Starts a great demand*__  
+> Usage: emStartGreatDemand  
     
-**emStartVehicleSale** *(Starts a vehicle sale)*  
-Usage: emStartVehicleSale  
+## emStartVehicleSale
+> __*Starts a vehicle sale*__  
+> Usage: emStartVehicleSale  
     
-**emSuspendApp** *(Suspends the game)*  
-Usage: emSuspendApp  
+## emSuspendApp
+> __*Suspends the game*__  
+> Usage: emSuspendApp  
     
-**emTakeVehicleScreenshotsFromInside** *(Takes several screenshots of the selected vehicle from inside)*  
-Usage: emTakeVehicleScreenshotsFromInside **vehicleName** *\[xRotation] \[xOffset] \[yOffset] \[zOffset] \[FOV] [unfold]*  
+## emTakeVehicleScreenshotsFromInside
+> __*Takes several screenshots of the selected vehicle from inside*__  
+> Usage: emTakeVehicleScreenshotsFromInside **vehicleName** *\[xRotation] \[xOffset] \[yOffset] \[zOffset] \[FOV] [unfold]*  
     
-**emTakeVehicleScreenshotsFromOutside** *(Takes several screenshots of the selected vehicle from outside)*  
-Usage: emTakeVehicleScreenshotsFromOutside **vehicleName** *\[distance] \[xOffset] \[yOffset] \[zOffset] [unfold]*  
+## emTakeVehicleScreenshotsFromOutside
+> __*Takes several screenshots of the selected vehicle from outside*__  
+> Usage: emTakeVehicleScreenshotsFromOutside **vehicleName** *\[distance] \[xOffset] \[yOffset] \[zOffset] [unfold]*  
     
-**emTeleport** *(Teleports to given field or x/z-position)*  
-Usage: emTeleport **xPos|Fieldnumber** *[zPos]*  
+## emTeleport
+> __*Teleports to given field or x/z-position*__  
+> Usage: emTeleport **xPos|Fieldnumber** *[zPos]*  
     
-**emUpdateTipCollisions** *(Updates the collisions for tipping on the ground around the current camera)*  
-Usage: emUpdateTipCollisions  
+## emUpdateTipCollisions
+> __*Updates the collisions for tipping on the ground around the current camera*__  
+> Usage: emUpdateTipCollisions  
     
-**emVerifyI18N** *(Checks the I18N)*  
-Usage: emVerifyI18N  
+## emVerifyI18N
+> __*Checks the I18N*__  
+> Usage: emVerifyI18N  
     
