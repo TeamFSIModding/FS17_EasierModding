@@ -1,7 +1,7 @@
 # FS17_EasierModding
 Adds new useful commands to developer console.  
   
-# Commands list
+## Commands list
 ### emAddBale
 > __*Adds a bale*__  
 > Usage: emAddBale **fillType isRoundBale** *[width height / diameter length]*  
