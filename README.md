@@ -1,4 +1,5 @@
 # FS17_EasierModding
+[![Build Status](https://travis-ci.org/TeamFSIModding/FS17_EasierModding.svg?branch=master)](https://travis-ci.org/TeamFSIModding/FS17_EasierModding)  
 Adds new useful commands to developer console.  
   
 ## Commands list
