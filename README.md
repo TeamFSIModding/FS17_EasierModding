@@ -37,7 +37,7 @@ Adds new useful commands to developer console.
     
 ### emFillVehicle
 > __*Fills the vehicle with given filltype*__  
-> Usage: emFillVehicle *\[fillType] [amount]*  
+> Usage: emFillVehicle **fillType amount \[force]**
     
 ### emReloadCurrentGui
 > __*Reloads the gui  

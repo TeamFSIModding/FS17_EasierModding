@@ -56,7 +56,7 @@ function EasierModding:loadMap(name)
         addConsoleCommand("emCheatSilo", "Add silo amount", "consoleCommandCheatSilo", g_currentMission);
         addConsoleCommand("emDeleteAllVehicles", "Deletes all vehicles", "consoleCommandDeleteAllVehicles", g_currentMission);
         addConsoleCommand("emExportStoreItems", "Exports storeItem data", "consoleCommandExportStoreItems", g_currentMission);
-        addConsoleCommand("emFillVehicle", "Fills the vehicle with given filltype", "consoleCommandFillVehicle", g_currentMission);
+        addConsoleCommand("emFillVehicle", "Fills the vehicle with given filltype", "consoleCommandFillVehicle", self);
         addConsoleCommand("emSetAnimals", "Sets the amount of given animals", "consoleCommandSetAnimals", self);
         addConsoleCommand("emSetDirtScale", "Sets a given dirt scale", "consoleCommandSetDirtScale", g_currentMission);
         addConsoleCommand("emSetFieldFruit", "Sets a given fruit to field", "consoleCommandSetFieldFruit", g_currentMission);
@@ -71,7 +71,7 @@ function EasierModding:loadMap(name)
         addConsoleCommand("emTakeVehicleScreenshotsFromOutside", "Takes several screenshots of the selected vehicle from outside", "consoleCommandTakeScreenshotsFromOutside", g_currentMission);
         addConsoleCommand("emTeleport", "Teleports to given field or x/z-position", "consoleCommandTeleport", g_currentMission);
         addConsoleCommand("emUpdateTipCollisions", "Updates the collisions for tipping on the ground around the current camera", "consoleCommandUpdateTipCollisions", g_currentMission);
-    end
+	end
     self:loadSavegame();
 end
 
@@ -152,6 +152,72 @@ function EasierModding:consoleCommandSetAnimals(type, amount)
         husbandry:removeAnimals(math.abs(difAmount), 0);
     end
     return string.format("Setted %s from %s to %s(%s)", type, oldAmount, amount, difAmount);
+end
+
+function EasierModding:consoleCommandFillVehicle(filltype, amount, force)
+    local vehicle = g_currentMission.controlledVehicle
+    local fillImps = {}
+    if (vehicle == nil) then
+        return "You need to be in a fillable vehicle for this command to work!"
+    else
+        if (vehicle.fillUnits == nil) then
+            for _, implement in pairs(vehicle.attachedImplements) do
+                if implement.object ~= nil then
+                    if (implement.object.fillUnits ~= nil) then
+                        table.insert(fillImps, implement.object)
+                    end
+                end
+            end
+
+            if (#fillImps <= 0) then
+                return "You need to be in a fillable vehicle for this command to work!"
+            end
+        end
+    end
+
+    local filltype = FillUtil.fillTypeNameToDesc[filltype]
+    if filltype == nil or filltype == "" then
+        local text = "Invalid filltype \""..tostring(filltype).."\"\n"
+        text = text .. "Usage: emFillVehicle filltypeName amount\n"
+        text = text .. "\t\tWith filltypeName being any of the following:\n"
+        for FTN,table in pairs(FillUtil.fillTypeNameToDesc) do
+            text = text .. "\t\t\t\t- Filltype: "..FTN.." :: Idx: "..table.index.."\n"
+        end
+        return text
+    else
+        filltype = filltype.index
+    end
+
+    amount = tonumber(amount)
+    if amount == nil then
+        return "Invalid amount: \""..tostring(amount).."\""
+    end
+
+    if (force ~= nil) then
+        if (not (force=="false" or force=="true")) then
+            print("Force is of unknown type, ignoring")
+            force = nil
+        else
+            force = (force == "true" and true or false)
+        end
+    end
+
+    
+    if (vehicle.setFillLevel ~= nil) then
+        local yesno = (vehicle:allowFillType(filltype, false) and "yes" or "no")
+        print("Accepted by vehicle: "..yesno)
+        vehicle:setFillLevel(amount, filltype, force)
+    end
+
+    for _,implement in pairs(fillImps) do
+        if (implement.setFillLevel ~= nil) then
+            local yesno = (implement:allowFillType(filltype, false) and "yes" or "no")
+            print("Accepted by implement: "..yesno)
+            implement:setFillLevel(amount, filltype, force)
+        end
+    end
+
+    return "Done"
 end
 
 addModEventListener(EasierModding);
